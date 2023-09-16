@@ -1,3 +1,7 @@
 {
-    "bg3.lslib.path": "path\\to\\lslib\\divine.exe"
+    "Lua.workspace.library": [
+        "D:\\BG3 Modding\\Osi.lua",
+        "D:\\BG3 Modding\\Osi.Events.lua"
+    ],
+    "bg3.lslib.path": "D:\\BG3 Modding\\Tools\\LSLib ExportTool\\Tools\\divine.exe"
 }

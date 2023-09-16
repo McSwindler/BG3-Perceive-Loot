@@ -6,26 +6,26 @@
       <children>
         <node id="Dependencies" />
         <node id="ModuleInfo">
-          <attribute id="Author" type="LSString" value="" />
+          <attribute id="Author" type="LSString" value="McSwindler" />
           <attribute id="CharacterCreationLevelName" type="FixedString" value="" />
-          <attribute id="Description" type="LSString" value="" />
-          <attribute id="Folder" type="LSString" value="BG3ModTemplate" />
+          <attribute id="Description" type="LSString" value="Rolls a Perception check to scan the room for high value items" />
+          <attribute id="Folder" type="LSString" value="PerceiveLoot" />
           <attribute id="GMTemplate" type="FixedString" value="" />
           <attribute id="LobbyLevelName" type="FixedString" value="" />
           <attribute id="MD5" type="LSString" value="" />
           <attribute id="MainMenuBackgroundVideo" type="FixedString" value="" />
           <attribute id="MenuLevelName" type="FixedString" value="" />
-          <attribute id="Name" type="FixedString" value="BG3 Mod Template" />
+          <attribute id="Name" type="FixedString" value="Perceive Loot" />
           <attribute id="NumPlayers" type="uint8" value="4" />
           <attribute id="PhotoBooth" type="FixedString" value="" />
           <attribute id="StartupLevelName" type="FixedString" value="" />
           <attribute id="Tags" type="LSString" value="" />
           <attribute id="Type" type="FixedString" value="Add-on" />
-          <attribute id="UUID" type="FixedString" value="" />
-          <attribute id="Version" type="int64" value="" />
+          <attribute id="UUID" type="FixedString" value="43991ffa-e96e-44a4-9f2d-8589a349f91d" />
+          <attribute id="Version" type="int64" value="36028799166447637" />
           <children>
             <node id="PublishVersion">
-              <attribute id="Version" type="int64" value="" />
+              <attribute id="Version" type="int64" value="36028799166447637" />
             </node>
             <node id="Scripts" />
             <node id="TargetModes">
