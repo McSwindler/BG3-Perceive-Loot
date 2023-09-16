@@ -1,0 +1,146 @@
+{
+	"version": "2.0.0",
+    "windows": {
+        "options": {
+            "shell": {
+                "executable": "powershell.exe"
+            }
+        }},
+	"tasks": [
+        {
+            "label": "Create Pak",
+            "type": "shell",
+            "command": "${workspaceFolder}\\.vscode\\scripts\\build-pak.ps1",
+            "args": [
+                "${config:bg3.lslib.path}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "promptOnClose": false,
+            "runOptions": {
+                "reevaluateOnRerun": false,
+                "instanceLimit": 1
+            },
+            "dependsOrder": "sequence",
+            "dependsOn": ["Convert Localization Files", "Uprev Build Version"],
+            "detail": "Creates a pak for a mod root folder, using lslib's CLI interface, divine.exe.",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Convert Localization Files",
+            "type": "shell",
+            "command": "${workspaceFolder}\\.vscode\\scripts\\convert-loca.ps1",
+            "args": [
+                "${config:bg3.lslib.path}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "promptOnClose": false,
+            "runOptions": {
+                "reevaluateOnRerun": false,
+                "instanceLimit": 1
+            },
+            "detail": "Converts all Localization xml files, using lslib's CLI interface, divine.exe.",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build"
+            }
+        },
+        {
+            "label": "Uprev Build Version",
+            "type": "shell",
+            "command": "${workspaceFolder}\\.vscode\\scripts\\set-version-number.ps1",
+            "args": [
+                "build"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "promptOnClose": false,
+            "runOptions": {
+                "reevaluateOnRerun": false,
+                "instanceLimit": 1
+            },
+            "detail": "Increments the build number version meta.lsx",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build"
+            }
+        },
+        {
+            "label": "Uprev Version",
+            "type": "shell",
+            "command": "${workspaceFolder}\\.vscode\\scripts\\set-version-number.ps1",
+            "args": [
+                "${input:pickVersionCategory}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "promptOnClose": false,
+            "runOptions": {
+                "reevaluateOnRerun": false,
+                "instanceLimit": 1
+            },
+            "detail": "Increments the given version category in meta.lsx",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Rename Mod",
+            "type": "shell",
+            "command": "${workspaceFolder}\\.vscode\\scripts\\rename-mod.ps1",
+            "args": [
+                "${input:modName}",
+                "${input:modAuthor}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "promptOnClose": false,
+            "runOptions": {
+                "reevaluateOnRerun": false,
+                "instanceLimit": 1
+            },
+            "detail": "Renames the current mod.",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "description": "Pick Version Category to Uprev",
+            "id": "pickVersionCategory",
+            "type": "pickString",
+            "default": "build",
+            "options": [
+                "build",
+                "revision",
+                "minor",
+                "major"
+            ]
+        },
+        {
+            "description": "New name for the mod",
+            "id": "modName",
+            "type": "promptString"
+        },
+        {
+            "description": "The mod author's name",
+            "id": "modAuthor",
+            "type": "promptString"
+        }
+    ],
+}
