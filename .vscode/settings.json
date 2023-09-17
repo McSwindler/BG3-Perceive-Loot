@@ -3,5 +3,8 @@
         "D:\\BG3 Modding\\Osi.lua",
         "D:\\BG3 Modding\\Osi.Events.lua"
     ],
+    "Lua.diagnostics.globals": [
+        "Ext"
+    ],
     "bg3.lslib.path": "D:\\BG3 Modding\\Tools\\LSLib ExportTool\\Tools\\divine.exe"
 }
